@@ -137,4 +137,18 @@ test('Verifica se todos os treinos têm nomes diferentes', async () => {
   
     expect(hasDescriptionMatriz).toBe(true);
   });
+
+test('Verifica se existe pelo menos um treino com período ímpar', async () => {
+  const response = await axios.get('http://localhost:5000/tasks');
+  
+  expect(response.status).toBe(200);
+  expect(response.data).toHaveProperty('tasks');
+  
+  const tasks = response.data.tasks;
+  
+  const hasOddPeriod = tasks.some((task) => task.periodo % 2 !== 0);
+  
+  expect(hasOddPeriod).toBe(true);
+});
+
   
