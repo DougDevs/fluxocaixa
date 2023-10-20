@@ -1,46 +1,26 @@
-//npm install express express-handlebars mysql2 sequelize nodemon
-
-const express = require('express')
-
-
-const app = express()
-
-const conn = require('./db/conn')
-
-//Models
-const Task = require('./models/Task')
-
-//Routes
-const taskRoutes = require('./routes/tasksRoutes')
+const express = require('express');
+const app = express();
+const conn = require('./db/conn');
 
 
+// Models
+const Venda = require('./models/Venda'); // Importe o modelo "Venda"
 
+// Routes
+const vendasRoutes = require('./routes/VendasRoutes'); // Importe as rotas de vendas
 
-//midlewares
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(
-    express.urlencoded({
-        extended:true,
-    }),
-)
+// Use as rotas de vendas no caminho '/vendas'
+app.use('/vendas', vendasRoutes);
 
-app.use(express.json())
-
-
-
-app.use('/tasks', taskRoutes)
-
-app.use('/', taskRoutes)
-
-
-conn
-    .sync()
+conn.sync()
     .then(() => {
-    app.listen(5000)
-    console.log('Escutando porta')
-}
-).catch((err) =>
-    console.log(err)
-)
-
-
+        app.listen(5000);
+        console.log('Escutando na porta 5000');
+    })
+    .catch((err) => {
+        console.error(err);
+    });

@@ -1,0 +1,34 @@
+<h1>Editando a Venda</h1>
+<form action="/vendas/edit" method="post">
+    <input type="hidden" name="id" value="{{venda.id}}">
+    <div class="form-control">
+        <label for="cliente">Cliente:</label>
+        <input type="text" name="cliente" placeholder="Nome do cliente" value="{{venda.cliente}}" required>
+    </div>
+    <div class="form-control">
+        <label for="placa">Placa:</label>
+        <input type="text" name="placa" placeholder="Placa do veículo" value="{{venda.placa}}" required>
+    </div>
+    <div class="form-control">
+        <label for="dataHora">Data e Hora:</label>
+        <input type="datetime-local" name="dataHora" placeholder="Data e Hora da venda" value="{{venda.dataHora}}" required>
+    </div>
+    <div class="form-control">
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" placeholder="Valor da venda" value="{{venda.valor}}" required>
+    </div>
+    <div class="form-control">
+        <label for="modoPagamento">Modo de Pagamento:</label>
+        <input type="text" name="modoPagamento" placeholder="Modo de pagamento" value="{{venda.modoPagamento}}" required>
+    </div>
+    <div class="form-control">
+        <label for="faturado">Faturado:</label>
+        <input type="checkbox" name="faturado" value="true" {{#if venda.faturado}} checked {{/if}}>
+        {{#if venda.faturado}}
+            <i class="bi bi-check-circle"></i> <!-- Exibe um ícone de confirmação se a venda estiver faturada -->
+        {{else}}
+            <i class="bi bi-exclamation-circle"></i> <!-- Exibe um ícone de aviso se a venda não estiver faturada -->
+        {{/if}}
+    </div>
+    <input type="submit" value="Salvar">
+</form>

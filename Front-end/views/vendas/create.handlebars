@@ -1,0 +1,29 @@
+<h1>Criando uma Venda</h1>
+<form action="/vendas/add" method="post">
+    <div class="form-control">
+        <label for="cliente">Cliente:</label>
+        <input type="text" name="cliente" placeholder="Nome do cliente" required>
+    </div>
+    <div class="form-control">
+        <label for="placa">Placa:</label>
+        <input type="text" name="placa" placeholder="Placa do veículo" required>
+    </div>
+    <div class="form-control">
+        <label for="dataHora">Data e Hora:</label>
+        <input type="datetime-local" name="dataHora" placeholder="Data e Hora da venda" required>
+    </div>
+    <div class="form-control">
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" placeholder="Valor da venda" required>
+    </div>
+    <div class="form-control">
+        <label for="modoPagamento">Modo de Pagamento:</label>
+        <input type="text" name="modoPagamento" placeholder="Modo de pagamento" required>
+    </div>
+    <div class="form-control">
+        <label for="faturado">Faturado:</label>
+        <input type="checkbox" name="faturado" value="true"> <!-- Adicione um checkbox para indicar se a venda está faturada -->
+    </div>
+    
+    <input type="submit" value="Cadastrar">
+</form>

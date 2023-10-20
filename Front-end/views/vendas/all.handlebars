@@ -1,0 +1,36 @@
+<h1>Todas as Vendas</h1>
+<ul class='venda-list'>
+    {{#if emptyVendas}}
+        <p>Não há Vendas</p>
+    {{/if}}
+    {{#each vendas}}
+        <li>
+            <a href="/vendas/edit/{{this.id}}" class="title">
+                <span class="status-icon">
+                    {{#if this.faturado}}
+                        <i class="bi bi-check-circle"></i> <!-- Ícone para venda faturada -->
+                    {{else}}
+                        <i class="bi bi-exclamation-circle"></i> <!-- Ícone para venda não faturada -->
+                    {{/if}}
+                </span>
+                {{this.cliente}} - R$ {{this.valor}}
+            </a>
+            <span class="actions">
+                <form action="/vendas/done" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="hidden" name="done" value="{{this.faturado}}">
+                    
+                </form>
+                <a href="/vendas/edit/{{this.id}}">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <form action="/vendas/remove" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button type="submit">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </form>
+            </span>
+        </li>
+    {{/each}}
+</ul>

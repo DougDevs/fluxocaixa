@@ -1,7 +1,12 @@
 * {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
 }
 
 #navbar {
@@ -26,11 +31,21 @@
 #navbar ul li a {
   text-decoration: none;
   color: #fff;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+#navbar ul li a:hover {
+  color: #88c570;
 }
 
 .container {
-  max-width: 450px;
+  max-width: 800px;
   margin: 2em auto;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container form {
@@ -38,14 +53,13 @@
 }
 
 .form-control {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 1em;
 }
 
 .form-control label {
   font-weight: bold;
   margin-bottom: 0.3em;
+  color: #333;
 }
 
 .form-control input,
@@ -53,6 +67,8 @@
   padding: 7px;
   border-radius: 3px;
   border: 1px solid #ccc;
+  width: 100%;
+  font-size: 16px;
 }
 
 form input[type='submit'] {
@@ -63,6 +79,11 @@ form input[type='submit'] {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form input[type='submit']:hover {
+  background-color: #88c570;
 }
 
 .task-list {
@@ -71,11 +92,20 @@ form input[type='submit'] {
 }
 
 .task-list li {
-  padding: 0.5em;
+  padding: 1em;
   margin-bottom: 1em;
-  border-bottom: 1px solid #efefef;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.task-list li:hover {
+  background-color: #f9f9f9;
 }
 
 .task-list .title {
@@ -91,16 +121,19 @@ form input[type='submit'] {
 
 .actions {
   display: flex;
+  align-items: center;
 }
 
 .actions i {
   font-size: 1.5em;
   margin-right: 0.6em;
   color: #333;
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
 .actions i:hover {
-  color: #79f3df;
+  color: #88c570;
 }
 
 .actions form {
